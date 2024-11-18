@@ -1,0 +1,140 @@
+class GeometryCalculator {
+    /**
+     * Calculates the area of a rectangle.
+     *
+     * @param {number} length - The length of the rectangle.
+     * @param {number} width - The width of the rectangle.
+     * @returns {number} The area of the rectangle.
+     * @throws {Error} Throws an error if length or width is less than or equal to zero.
+     */
+    static calculateRectangleArea(length, width) {
+        if (length <= 0 || width <= 0) {
+            throw new Error("Length and width must be greater than zero.");
+        }
+        return length * width;
+    }
+ 
+    /**
+     * Calculates the area of a triangle.
+     *
+     * @param {number} base - The base of the triangle.
+     * @param {number} height - The height of the triangle.
+     * @returns {number} The area of the triangle.
+     * @throws {Error} Throws an error if base or height is less than or equal to zero.
+     */
+    static calculateTriangleArea(base, height) {
+        if (base <= 0 || height <= 0) {
+            throw new Error("Base and height must be greater than zero.");
+        }
+        return (base * height) / 2;
+    }
+ 
+    /**
+     * Calculates the area of a circle.
+     *
+     * @param {number} radius - The radius of the circle.
+     * @returns {number} The area of the circle.
+     * @throws {Error} Throws an error if radius is less than or equal to zero.
+     */
+    static calculateCircleArea(radius) {
+        if (radius <= 0) {
+            throw new Error("Radius must be greater than zero.");
+        }
+        return Math.PI * radius * radius;
+    }
+ 
+    /**
+     * Calculates the perimeter of a rectangle.
+     *
+     * @param {number} length - The length of the rectangle.
+     * @param {number} width - The width of the rectangle.
+     * @returns {number} The perimeter of the rectangle.
+     * @throws {Error} Throws an error if length or width is less than or equal to zero.
+     */
+    static calculateRectanglePerimeter(length, width) {
+        if (length <= 0 || width <= 0) {
+            throw new Error("Length and width must be greater than zero.");
+        }
+        return 2 * (length + width);
+    }
+ 
+    /**
+     * Calculates the perimeter of a triangle.
+     *
+     * @param {number} sideA - The length of the first side of the triangle.
+     * @param {number} sideB - The length of the second side of the triangle.
+     * @param {number} sideC - The length of the third side of the triangle.
+     * @returns {number} The perimeter of the triangle.
+     * @throws {Error} Throws an error if any side is less than or equal to zero.
+     */
+    static calculateTrianglePerimeter(sideA, sideB, sideC) {
+        if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
+            throw new Error("All sides must be greater than zero.");
+        }
+        return sideA + sideB + sideC;
+    }
+ 
+    /**
+     * Calculates the circumference of a circle.
+     *
+     * @param {number} radius - The radius of the circle.
+     * @returns {number} The circumference of the circle.
+     * @throws {Error} Throws an error if radius is less than or equal to zero.
+     */
+    static calculateCircleCircumference(radius) {
+        if (radius <= 0) {
+            throw new Error("Radius must be greater than zero.");
+        }
+        return 2 * Math.PI * radius;
+    }
+}
+ 
+// Usage Examples for GeometryCalculator
+ 
+// Example 1: Calculate the area of a rectangle
+try {
+    const rectangleArea = GeometryCalculator.calculateRectangleArea(5, 10);
+    console.log(`The area of the rectangle is: ${rectangleArea}`);
+} catch (error) {
+    console.error(error.message);
+}
+ 
+// Example 2: Calculate the area of a triangle
+try {
+    const triangleArea = GeometryCalculator.calculateTriangleArea(5, 10);
+    console.log(`The area of the triangle is: ${triangleArea}`);
+} catch (error) {
+    console.error(error.message);
+}
+ 
+// Example 3: Calculate the area of a circle
+try {
+    const circleArea = GeometryCalculator.calculateCircleArea(7);
+    console.log(`The area of the circle is: ${circleArea}`);
+} catch (error) {
+    console.error(error.message);
+}
+ 
+// Example 4: Calculate the perimeter of a rectangle
+try {
+    const rectanglePerimeter = GeometryCalculator.calculateRectanglePerimeter(5, 10);
+    console.log(`The perimeter of the rectangle is: ${rectanglePerimeter}`);
+} catch (error) {
+    console.error(error.message);
+}
+ 
+// Example 5: Calculate the perimeter of a triangle
+try {
+    const trianglePerimeter = GeometryCalculator.calculateTrianglePerimeter(3, 4, 5);
+    console.log(`The perimeter of the triangle is: ${trianglePerimeter}`);
+} catch (error) {
+    console.error(error.message);
+}
+ 
+// Example 6: Calculate the circumference of a circle
+try {
+    const circleCircumference = GeometryCalculator.calculateCircleCircumference(7);
+    console.log(`The circumference of the circle is: ${circleCircumference}`);
+} catch (error) {
+    console.error(error.message);
+}
