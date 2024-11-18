@@ -1,0 +1,84 @@
+class AlgebraSolver {
+    /**
+     * Solves a linear equation of the form ax + b = 0.
+     *
+     * @param {number} a - Coefficient of x.
+     * @param {number} b - Constant term.
+     * @returns {number} The solution for x.
+     * @throws {Error} Throws an error if a is zero, as the equation would not be valid.
+     */
+    static solveLinearEquation(a, b) {
+        if (a === 0) {
+            throw new Error("Coefficient 'a' cannot be zero in a linear equation.");
+        }
+        return -b / a;
+    }
+ 
+    /**
+     * Solves a quadratic equation of the form ax^2 + bx + c = 0 using the quadratic formula.
+     *
+     * @param {number} a - Coefficient of x^2.
+     * @param {number} b - Coefficient of x.
+     * @param {number} c - Constant term.
+     * @returns {Array<number>} An array containing the two solutions (real or complex).
+     * @throws {Error} Throws an error if a is zero, as the equation would not be quadratic.
+     */
+    static solveQuadraticEquation(a, b, c) {
+        if (a === 0) {
+            throw new Error("Coefficient 'a' cannot be zero in a quadratic equation.");
+        }
+        const discriminant = b * b - 4 * a * c;
+        const sqrtDiscriminant = Math.sqrt(Math.abs(discriminant));
+        
+        if (discriminant > 0) {
+            // Two distinct real roots
+            return [(-b + sqrtDiscriminant) / (2 * a), (-b - sqrtDiscriminant) / (2 * a)];
+        } else if (discriminant === 0) {
+            // One real root
+            return [-b / (2 * a)];
+        } else {
+            // Two complex roots
+            return [
+                `${-b / (2 * a)} + ${sqrtDiscriminant / (2 * a)}i`,
+                `${-b / (2 * a)} - ${sqrtDiscriminant / (2 * a)}i`
+            ];
+        }
+    }
+ 
+    /**
+     * Evaluates a polynomial of the form ax^n + bx^(n-1) + ... + c for a given value of x.
+     *
+     * @param {Array<number>} coefficients - An array of coefficients [a, b, ..., c] where a is the coefficient of x^n.
+     * @param {number} x - The value at which to evaluate the polynomial.
+     * @returns {number} The result of the polynomial evaluation.
+     */
+    static evaluatePolynomial(coefficients, x) {
+        return coefficients.reduce((acc, coeff, index) => {
+            return acc + coeff * Math.pow(x, coefficients.length - 1 - index);
+        }, 0);
+    }
+}
+ 
+// Usage Examples for AlgebraSolver
+ 
+// Example 1: Solving a linear equation
+try {
+    const linearSolution = AlgebraSolver.solveLinearEquation(2, 4);
+    console.log(`The solution for the linear equation 2x + 4 = 0 is: x = ${linearSolution}`);
+} catch (error) {
+    console.error(error.message);
+}
+ 
+// Example 2: Solving a quadratic equation
+try {
+    const quadraticSolutions = AlgebraSolver.solveQuadraticEquation(1, -3, 2);
+    console.log(`The solutions for the quadratic equation x^2 - 3x + 2 = 0 are: x = ${quadraticSolutions}`);
+} catch (error) {
+    console.error(error.message);
+}
+ 
+// Example 3: Evaluating a polynomial
+const polynomialCoefficients = [1, -3, 2]; // Represents x^2 - 3x + 2
+const xValue = 5;
+const polynomialResult = AlgebraSolver.evaluatePolynomial(polynomialCoefficients, xValue);
+console.log(`The value of the polynomial x^2 - 3x + 2 at x = ${xValue} is: ${polynomialResult}`);
