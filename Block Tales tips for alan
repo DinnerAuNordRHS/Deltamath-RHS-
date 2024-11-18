@@ -1,0 +1,56 @@
+/**
+ * Class representing a guide for the game Block Tales on Roblox.
+ */
+class BlockTalesGuide {
+    /**
+     * Creates an instance of BlockTalesGuide.
+     */
+    constructor() {
+        /** @private */
+        this.tips = [
+            "1. Explore the map thoroughly to find hidden treasures and resources.",
+            "2. Team up with friends to tackle difficult challenges and bosses.",
+            "3. Upgrade your character regularly to improve your chances of survival.",
+            "4. Pay attention to the game's events and updates for new content.",
+            "5. Use the in-game chat to communicate with other players for strategies.",
+            "6. Practice your building skills to create better defenses and structures.",
+            "7. Watch tutorials and gameplay videos to learn advanced techniques.",
+            "8. Participate in community forums to share tips and tricks with other players.",
+            "9. Keep an eye on your inventory and manage your resources wisely.",
+            "10. Don't be afraid to experiment with different strategies and play styles."
+        ];
+    }
+ 
+    /**
+     * Retrieves all tips for playing Block Tales.
+     *
+     * @returns {Array<string>} An array of tips for the game.
+     */
+    getTips() {
+        return this.tips;
+    }
+ 
+    /**
+     * Retrieves a random tip for playing Block Tales.
+     *
+     * @returns {string} A random tip for the game.
+     */
+    getRandomTip() {
+        const randomIndex = Math.floor(Math.random() * this.tips.length);
+        return this.tips[randomIndex];
+    }
+}
+ 
+// Usage Example for BlockTalesGuide
+ 
+// Create an instance of the BlockTalesGuide
+const blockTalesGuide = new BlockTalesGuide();
+ 
+// Get all tips
+const allTips = blockTalesGuide.getTips();
+console.log("Tips to beat Block Tales:");
+allTips.forEach(tip => console.log(tip));
+ 
+// Get a random tip
+const randomTip = blockTalesGuide.getRandomTip();
+console.log("Here's a random tip to help you: " + randomTip);
